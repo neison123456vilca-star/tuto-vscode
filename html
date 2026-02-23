@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Verificador de Peso</title>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f2f2f2;
+        padding: 50px;
+    }
+    input{
+        padding: 10px;
+        font-size: 16px;
+    }
+    button{
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    #videoContainer{
+        margin-top: 20px;
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<h1>Verifica tu peso</h1>
+<p>Ingresa tu peso en kg:</p>
+
+<input type="number" id="peso" placeholder="Ej: 75">
+<br>
+<button onclick="verificarPeso()">Verificar</button>
+
+<div id="videoContainer">
+    <h2>😂 ¡Más de 80kg! Mira este video!</h2>
+    <video id="miVideo" width="400">
+        <source src="0223.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+    </video>
+</div>
+
+<script>
+function verificarPeso(){
+    let peso = document.getElementById("peso").value;
+    let videoContainer = document.getElementById("videoContainer");
+    let video = document.getElementById("miVideo");
+
+    if(peso > 80){
+        videoContainer.style.display = "block";
+        video.play(); // Se reproduce con audio
+    } else {
+        videoContainer.style.display = "none";
+        video.pause();
+        video.currentTime = 0;
+        alert("Todo normal 👍");
+    }
+}
+</script>
+
+</body>
+</html>
